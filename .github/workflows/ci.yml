@@ -26,9 +26,6 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
-      # Parallelism is set to 1, otherwise docker containers can't be started in parallel jobs since their names
-      # (jobmanager or taskmanager) clashes.
-      max-parallel: 1
       matrix:
         java_version: [ 8, 11, 17, 21 ]
     steps:
