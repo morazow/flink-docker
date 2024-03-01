@@ -23,9 +23,7 @@ env:
 jobs:
   ci:
     name: CI using JDK ${{ matrix.java_version }}
-    # Check 01
     runs-on: ubuntu-latest
-    # Check 02
     strategy:
       fail-fast: false
       matrix:
