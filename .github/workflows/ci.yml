@@ -32,6 +32,13 @@ jobs:
       - uses: actions/checkout@v4
       - name: "Build images"
         run: |
-          ./add-custom.sh -u "$TAR_URL" -j ${{ matrix.java_version }} -n "test-java${{ matrix.java_version }}"
+          for java_version in 8 11 17 21;
+          do
+            ./add-custom.sh -u "$TAR_URL" -j "$java_version" -n "test-java$java_version";
+          done
       - name: "Test images"
-        run: testing/run_tests.sh
+        run: |
+          for java_version in 8 11 17 21;
+          do
+            testing/run_tests.sh;
+          done
