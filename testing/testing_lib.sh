@@ -199,7 +199,7 @@ function internal_smoke_test_images() {
 	local docker_run_command_args="$2"
 
 	create_network
-	# trap cleanup EXIT RETURN
+	trap cleanup EXIT RETURN
 	build_test_job
 
 	local jobmanager_container_id
